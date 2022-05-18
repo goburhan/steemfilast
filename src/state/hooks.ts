@@ -333,7 +333,7 @@ export const useCakeVault = () => {
     userData: {
       isLoading,
       userShares: userSharesAsString,
-      robiniaAtLastUserAction: robiniaAtLastUserActionAsString,
+      buzzAtLastUserAction: robiniaAtLastUserActionAsString,
       lastDepositedTime,
       lastUserActionTime,
     },
@@ -363,7 +363,7 @@ export const useCakeVault = () => {
     return new BigNumber(userSharesAsString)
   }, [userSharesAsString])
 
-  const robiniaAtLastUserAction = useMemo(() => {
+  const buzzAtLastUserAction = useMemo(() => {
     return new BigNumber(robiniaAtLastUserActionAsString)
   }, [robiniaAtLastUserActionAsString])
 
@@ -383,7 +383,7 @@ export const useCakeVault = () => {
     userData: {
       isLoading,
       userShares,
-      robiniaAtLastUserAction,
+      buzzAtLastUserAction,
       lastDepositedTime,
       lastUserActionTime,
     },

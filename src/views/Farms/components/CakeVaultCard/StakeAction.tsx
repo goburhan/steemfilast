@@ -40,7 +40,7 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({ stakedBalance, tokenBalan
   const displayBalance = rawStakedBalance.toLocaleString()
   const stakedUSDValue = rawStakedBalance*cakePriceUsd.toNumber()
   if(isAutoVault){
-    console.log(stakedBalance.toNumber())
+    // console.log(stakedBalance.toNumber())
   }
   const [onPresentDeposit] = useModal(
     <DepositModal max={tokenBalance} onConfirm={(isAutoVault) ? handleVaultStake :onStake} tokenName={tokenName} depositFeeBP={depositFeeBP} />,

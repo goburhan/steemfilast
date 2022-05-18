@@ -102,7 +102,7 @@ const CakeVaultCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice,ethPr
   fetchPublicVaultData()
 
   const {
-    userData: { userShares, isLoading: isVaultUserDataLoading ,robiniaAtLastUserAction, lastUserActionTime},
+    userData: { userShares, isLoading: isVaultUserDataLoading ,buzzAtLastUserAction, lastUserActionTime},
     fees: { performanceFee },
     totalRobiniaInVault,
     pricePerFullShare,
@@ -121,7 +121,7 @@ const CakeVaultCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice,ethPr
 
   const vaultData = {
     userShares,
-    robiniaAtLastUserAction,
+    buzzAtLastUserAction,
     lastUserActionTime,
     pricePerFullShare,
     tokenTaxRate,

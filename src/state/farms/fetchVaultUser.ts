@@ -23,7 +23,7 @@ export const  fetchVaultUser = async (account: string ) => {
       userShares: new BigNumber(userContractResponse.shares.toString()).toJSON(),
       lastDepositedTime: userContractResponse.lastDepositedTime.toString(),
       lastUserActionTime: userContractResponse.lastUserActionTime.toString(),
-      robiniaAtLastUserAction: new BigNumber(userContractResponse.buzzAtLastUserAction.toString()).toJSON(),
+      buzzAtLastUserAction: new BigNumber(userContractResponse.buzzAtLastUserAction.toString()).toJSON(),
     }
   } catch (error) {
     return {
@@ -31,7 +31,7 @@ export const  fetchVaultUser = async (account: string ) => {
       userShares: null,
       lastDepositedTime: null,
       lastUserActionTime: null,
-      robiniaAtLastUserAction: null,
+      buzzAtLastUserAction: null,
     }
   }
 }

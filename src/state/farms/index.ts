@@ -31,7 +31,7 @@ const initialState: FarmsState = { data: [...farmsConfig],
     userData: {
       isLoading: true,
       userShares: null,
-      robiniaAtLastUserAction: null,
+      buzzAtLastUserAction: null,
       lastDepositedTime: null,
       lastUserActionTime: null,
     },

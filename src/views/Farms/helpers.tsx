@@ -113,19 +113,19 @@ export const getCakeVaultEarnings = (
   const autoCakeProfit = cakeAsBigNumber.minus(excludeTax)
   // alert(-autoCakeProfit.gte(0))
   const autoCakeToDisplay = autoCakeProfit.gte(0) ? getBalanceNumber(autoCakeProfit, 18) : 0
-  console.log(getBalanceNumber(autoCakeProfit, 18))
+  console.log()
 
-  // console.log(`cakeAsBigNumber:${cakeAsBigNumber}`)
-  // console.log(`cakeAtLastUserAction:${cakeAtLastUserAction}`)
-  // console.log(`excludeTax:${excludeTax}`)
-  // console.log(`userShares:${userShares}`)
-  // console.log(`pricePerFullShare:${pricePerFullShare}`)
-  // console.log(`earningTokenPrice:${earningTokenPrice}`)
-  // console.log(`autoCakeProfit:${autoCakeProfit}`)
+   console.log(`cakeAsBigNumber:${cakeAsBigNumber}`)
+   console.log(`cakeAtLastUserAction:${cakeAtLastUserAction}`)
+   console.log(`excludeTax:${excludeTax}`)
+   console.log(`userShares:${userShares}`)
+   console.log(`pricePerFullShare:${pricePerFullShare}`)
+   console.log(`earningTokenPrice:${earningTokenPrice}`)
+   console.log(`autoCakeProfit:${autoCakeProfit}`)
+  console.log(`autoCakeToDisplay:${autoCakeToDisplay}`)
 
-  // console.log(`autoCakeToDisplay:${autoCakeToDisplay}`)
-  const autoUsdProfit = autoCakeProfit.times(earningTokenPrice)
 
+  const autoUsdProfit = autoCakeProfit.times(-earningTokenPrice)
   const autoUsdToDisplay = autoUsdProfit.gte(0) ? getBalanceNumber(autoUsdProfit, 18) : 0
   return { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay ,cakeAsBigNumber}
 }

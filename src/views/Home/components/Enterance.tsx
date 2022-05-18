@@ -10,6 +10,7 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import { useBurnedBalance, useTotalSupply } from 'hooks/useTokenBalance'
 import { getCakeAddress } from 'utils/addressHelpers'
 import styled from 'styled-components'
+import bg from './cardbg.svg'
 
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber
@@ -58,6 +59,15 @@ const Enterance = () => {
     justify-content:center;
     border-radius:10px;
     backdrop-filter:  ${(props) => props.property};
+    @media (max-width: 1012px) {
+      margin-left:7%;
+      margin-right:7%;
+    }
+    @media (max-width: 450px) {
+      margin-left:0%;
+      margin-right:0%;
+    }
+
   `
   const Text = styled.div`
     margin-bottom: ${(props) => props.property};
@@ -86,7 +96,7 @@ const Enterance = () => {
           Simpified earning system with optimized yield aggregation and strategy based
           yield farms
         </Text>
-        <Flex color='rgba(255,255,255,0.15)' property='blur(4px)' datatype='solid 1px transparent'>
+        <Flex color="rgba(255,255,255,0.1)" property='blur(4px)' datatype='solid 1px transparent'>
           <Container>
             <Text color="#fff">Total Value Locked</Text>
 
@@ -112,7 +122,7 @@ const Enterance = () => {
           </Container>
           <Container>
             <Text color="#fff">SFT APY</Text>
-            <Values color="#1a4f97">
+            <Values color="#1a4f97" >
               {totalValue.toNumber() > 0 ? (
                 <CardValue
                   value={totalValue.toNumber()}

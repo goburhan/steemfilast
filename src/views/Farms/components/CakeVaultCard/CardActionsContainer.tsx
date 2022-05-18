@@ -43,7 +43,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account ,
   const cakePriceBusd = usePriceCakeBusd()
   const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay,cakeAsBigNumber } = getCakeVaultEarnings(
     account,
-    vaultData.robiniaAtLastUserAction,
+    vaultData.buzzAtLastUserAction,
     vaultData.userShares,
     vaultData.pricePerFullShare,
     cakePriceBusd.toNumber(),

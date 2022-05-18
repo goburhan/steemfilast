@@ -47,7 +47,7 @@ export interface PoolsState {
 export interface VaultUser {
   isLoading: boolean
   userShares: string
-  robiniaAtLastUserAction: string
+  buzzAtLastUserAction: string
   lastDepositedTime: string
   lastUserActionTime: string
 }
