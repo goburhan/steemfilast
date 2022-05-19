@@ -103,7 +103,7 @@ export default function Partners() {
         
           
           <div className='partnercard sm:mb-2  '>
-            <img src="/images/coinmarketcap.png" width='240' className='mt-6' alt='1'  />
+            <img src="/images/coinmarketcap.png" width='225' className='mt-8' alt='1'  />
           </div>
 
           <div className='partnercard sm:mb-2'>
@@ -115,7 +115,7 @@ export default function Partners() {
           </div>
 
           <div className='partnercard sm:mb-2'>
-            <img src="/images/partner4.png"   width='230' alt='1' />
+            <img src="/images/partner44.png"   width='230' alt='1' className='mt-2' />
           </div>
 
       </PartnerSection>
