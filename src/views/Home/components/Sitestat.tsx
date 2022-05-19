@@ -47,6 +47,8 @@ const addToMetamask = function () {
     })
     .catch(console.error)
 }
+
+
 const Statistics = () => {
   const cakePriceUsd = usePriceCakeBusd()
   // const totalValue = useTotalValue()
