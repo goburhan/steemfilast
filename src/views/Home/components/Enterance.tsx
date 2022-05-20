@@ -4,13 +4,12 @@ import { Farm } from 'state/types'
 import { QuoteToken } from 'config/constants/types'
 import Slider from 'react-slick'
 import { provider } from 'web3-core'
-import { useFarms, usePriceBnbBusd, usePriceCakeBusd, useTotalValue } from 'state/hooks'
+import { useAutoFarmApy, useFarms, usePriceBnbBusd, usePriceCakeBusd, useTotalValue } from 'state/hooks'
 import CardValue from 'views/Home/components/CardValue'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useBurnedBalance, useTotalSupply } from 'hooks/useTokenBalance'
 import { getCakeAddress } from 'utils/addressHelpers'
 import styled from 'styled-components'
-import bg from './cardbg.svg'
 
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber
@@ -31,16 +30,10 @@ const Enterance = () => {
   const farms = useFarms()
   const bnbPrice = usePriceBnbBusd()
   const cakeSupply = getBalanceNumber(circSupply)
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: false,
-    speed: 750,
-    autoplaySpeed: 5000,
-    arrows: false,
-  }
+ 
+  const apy =useAutoFarmApy(2)
+
+
   const Container = styled.div`
     display: block;
   `
@@ -125,16 +118,16 @@ const Enterance = () => {
             <Values color="#1a4f97" >
               {totalValue.toNumber() > 0 ? (
                 <CardValue
-                  value={totalValue.toNumber()}
-                  prefix="$"
-                  decimals={2}
+                  value={apy}
+                  prefix="%"
+                  decimals={0}
                   fontSize="18px"
                   color="#fff"
                 />
               ) : (
                 <CardValue
                   value={0}
-                  prefix="$"
+                  prefix="%"
                   decimals={2}
                   fontSize="18px"
                   color="#fff"

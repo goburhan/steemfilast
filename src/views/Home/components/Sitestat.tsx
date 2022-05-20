@@ -3,13 +3,13 @@ import CardValue from 'views/Home/components/CardValue'
 import { getBalanceNumber } from 'utils/formatBalance'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js/bignumber'
+import { getCakeAddress } from 'utils/addressHelpers'
 import {
   useTotalSupply,
   useBurnedBalance,
   useCustomTokenBalance,
 } from 'hooks/useTokenBalance'
 import { BLOCKS_PER_YEAR } from 'config'
-import { getCakeAddress } from 'utils/addressHelpers'
 import { QuoteToken } from 'config/constants/types'
 
 import {
@@ -17,6 +17,7 @@ import {
   usePriceCakeBusd,
   useTotalValue,
   usePriceBnbBusd,
+  useAutoFarmApy,
 } from '../../../state/hooks'
 
 declare global {
@@ -50,12 +51,12 @@ const addToMetamask = function () {
 
 
 const Statistics = () => {
-  const cakePriceUsd = usePriceCakeBusd()
-  // const totalValue = useTotalValue()
+  const totalValue = useTotalValue()
   const totalSupply = useTotalSupply()
   const burnedBalance = useBurnedBalance(getCakeAddress())
-  const farms = useFarms()
   const eggPrice = usePriceCakeBusd()
+  const cakePriceUsd = usePriceCakeBusd()
+  const farms = useFarms()
   const bnbPrice = usePriceBnbBusd()
   const exacutedBalance = useCustomTokenBalance(
     '0xaAdFf17d56d80312b392Ced903f3E8dBE5c3ece7',
@@ -99,6 +100,7 @@ const Statistics = () => {
     x.push(apy)
     return null
   })
+  
   const topAPY = x.reduce(function (accumulatedValue, currentValue) {
     return Math.max(accumulatedValue, currentValue)
   })
@@ -134,7 +136,9 @@ const Statistics = () => {
     text-align: left;
     margin-top: 40px;
   `
-
+ 
+  const apy =useAutoFarmApy(2)
+  
   return (
     <>
       <Stats>
@@ -148,7 +152,7 @@ const Statistics = () => {
           </Container>
 
           <Container>
-            <CardValue fontSize="18px" value={2} decimals={0} color="white" />
+            <CardValue fontSize="18px" value={apy} prefix="%" decimals={0} color="white" />
 
             {cakeSupply && (
               <CardValue
